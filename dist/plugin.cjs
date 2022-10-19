@@ -69,7 +69,7 @@ const plugin = _app.defineNuxtPlugin((nuxt) => {
       });
       apolloClients[clientId] = apolloClient;
     } else {
-      cache.restore(JSON.parse(JSON.stringify(nuxt.payload.data["apollo-" + clientId])));
+      cache.restore(JSON.parse(JSON.stringify(nuxt.payload.data["apollo-" + clientId] ?? {})));
       const apolloClient = new core.ApolloClient(Object.assign(options, {
         link: core.concat(authLink, httpLink),
         cache,

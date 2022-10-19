@@ -83,7 +83,7 @@ export default defineNuxtPlugin((nuxt: NuxtApp) => {
       apolloClients[clientId] = apolloClient;
     } else {
       // restore to cache, so the client won't request
-      cache.restore(JSON.parse(JSON.stringify(nuxt.payload.data['apollo-' + clientId])))
+      cache.restore(JSON.parse(JSON.stringify(nuxt.payload.data['apollo-' + clientId] ?? {})))
       const apolloClient = new ApolloClient(Object.assign(options, {
         link: concat(authLink, httpLink),
         cache: cache,

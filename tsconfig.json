@@ -10,7 +10,8 @@
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "types": [
-      "@nuxt/types"
+      "@nuxt/types",
+      "@types/node"
     ]
   },
   "exclude": [
